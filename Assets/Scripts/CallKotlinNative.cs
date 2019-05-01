@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Runtime.InteropServices;
 
 public class CallKotlinNative : MonoBehaviour
 {
+
+    [DllImport("__Internal")]
+    private static extern string createApplicationScreenMessage();
+
     private Text viewableText;
 
     void Start()
@@ -16,6 +21,8 @@ public class CallKotlinNative : MonoBehaviour
             pluginMessage = plugin.Call<string>("createApplicationScreenMessage");
             Debug.Log(pluginMessage);
         }
+#elif UNITY_IOS
+        pluginMessage = createApplicationScreenMessage();
 #endif
         viewableText = GetComponent<Text>();
         viewableText.text = pluginMessage;
