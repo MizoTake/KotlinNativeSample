@@ -1,6 +1,6 @@
 # Kotlin/Native Plugin Sample
 
-Unity 2019.1.0f2
+- Unity 2019.1.0f2
 
 Android Project → https://github.com/MizoTake/KotlinNativeSampleForUnity
 
